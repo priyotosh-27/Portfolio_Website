@@ -81,6 +81,35 @@
             border-radius: 2px;
         }
 
+        .bt {
+            display:inline-block;
+            padding: 0.8rem 1.8rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 999px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .bt:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .bt-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .bt-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
         .btn {
             display: inline-block;
             padding: 0.8rem 1.8rem;
@@ -431,18 +460,19 @@
         }
 
         .experience-container {
-            display: grid;
+            display: flex;
+            flex-direction: column ;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
         .experience-card {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            padding: 2rem;
-            transition: var(--transition);
-            border: 1px solid #e2e8f0;
+            background-color: #fff;
+            border-left: 5px solid #2563eb;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+            padding: 25px;
+            transition: transform 0.3s ease;
         }
 
         .experience-card:hover {
@@ -587,6 +617,8 @@
         .project-links {
             display: flex;
             gap: 1rem;
+            /* align-items: center; */
+            justify-content: center;
         }
 
         /* Skills Section */
@@ -920,7 +952,7 @@
             <div class="hero-text">
                 <p class="hero-subtitle">Hello, I'm</p>
                 <h1 class="hero-title">Priyotosh <span>Roy</span></h1>
-                <p class="hero-description">Computer Science Engineer | AI & Prompt Engineering Specialist | Competitive Programmer | Passionate about building intelligent systems and solving complex problems.</p>
+                <p class="hero-description">Computer Science Engineer || Intern @AICTE - VaultofCodes || Ex-Intern @AICTE - Edunet Foundation(IBM SkillsBuild) || Ex-Intern @AICTE - Edunet Foundation (Microsoft & SAP CSR) || Ex-Intern @LearnAsYouGo || competitive programmer.</p>
                 <div class="hero-btns">
                     <a href="https://leetcode.com/u/priyotosh453/" class="btn" target = "_blank">LeetCode Profile</a>
                     <a href="resume (1).pdf" class="btn btn-outline" target="_blank">My Resume</a>
@@ -948,11 +980,13 @@
                 </div>
                 <div class="about-text">
                     <h3 class="about-title">Who am I?</h3>
-                    <p class="about-description">I'm currently pursuing my B.Tech in Computer Science and Engineering at the University of Engineering and Management, Kolkata, with a strong academic record (8.85 CGPA). Alongside academics, I've immersed myself in real-world experiences through multiple internships in AI, Cybersecurity, and Prompt Engineering.
-
-🔍 During my internships with VaultofCodes, IBM SkillBuild, and a Microsoft-SAP CSR program, I worked on cutting-edge projects — from optimizing LLM prompts and building intelligent attendance systems using face recognition, to developing secure data-hiding algorithms using steganography.
-
-💡 My technical journey includes creating impactful projects like LeafScan, a deep learning tool for plant disease detection, and building end-to-end AI systems using Python, TensorFlow, OpenCV, and other modern libraries. I'm also an avid competitive programmer, having <b> solved 500+ DSA problems </b> and earned a <b>5-star rating on HackerRank</b>.</p>
+                    <p class="about-description">Hi! I'm Priyotosh Roy, a B.Tech student in Computer Science and Engineering at the University of Engineering and Management, Kolkata. I currently have a CGPA of 8.85.
+                    <br>
+                    I’ve completed internships in AI, Cybersecurity, and Prompt Engineering at VaultofCodes, IBM SkillBuild, and the Microsoft-SAP CSR program. During these internships, I worked on real-world projects like: <br>
+                        - Developing a system to securely hide secret data inside images using Python. <br>
+                        - Building a face recognition-based attendance system using OpenCV. <br>
+                        - Creating LeafScan, an AI tool to detect plant diseases from leaf images. <br>
+                    I’m passionate about coding and problem-solving. 🧠 I’ve <b> solved 500+ DSA problems </b>, earned a <b>⭐ 5-star rating on HackerRank </b>, and recently received the <b> LeetCode 50 Days Badge 2025 for solving problems </b> for over 50 days in a row.
                 </div>
             </div>
         </div>
@@ -997,7 +1031,7 @@
                         </div>
                         <div>
                             <h3 class="experience-title">AI and Prompt Engineering Intern</h3>
-                            <p class="experience-company">VaultofCodes</p>
+                            <p class="experience-company">VaultofCodes - AICTE Approved</p>
                         </div>
                     </div>
                     <p class="experience-date">June 2025 - Present</p>
@@ -1007,6 +1041,7 @@
                         <li>Reduced AI hallucinations by 40% through advanced prompt tuning</li>
                         <li>Automated prompt workflows, increasing content productivity by 25%</li>
                     </ul>
+                    <a href="ValutofCode_Offer_Letter.pdf" class="bt" target = "_blank">Offer Letter</a>
                 </div>
                 <div class="experience-card">
                     <div class="experience-header">
@@ -1015,7 +1050,7 @@
                         </div>
                         <div>
                             <h3 class="experience-title">Cyber Security Intern</h3>
-                            <p class="experience-company">Edunet Foundation (IBM SkillBuild)</p>
+                            <p class="experience-company">Edunet Foundation (IBM SkillBuild) - AICTE Approved</p>
                         </div>
                     </div>
                     <p class="experience-date">Jan. 2025 - Feb. 2025</p>
@@ -1024,6 +1059,8 @@
                         <li>Engineered a Python-based steganography system with a 95%+ hidden data retrieval rate</li>
                         <li>Strengthened image encryption, improving confidentiality across communication pipelines</li>
                     </ul>
+                    <a href="Cyber_Security_Offer_Letter.pdf" class="bt" target = "_blank">Offer Letter</a>
+                    <a href="Cyber_Security_Certificate.pdf" class="bt" target = "_blank">Internship Certificate</a>
                 </div>
                 <div class="experience-card">
                     <div class="experience-header">
@@ -1032,7 +1069,7 @@
                         </div>
                         <div>
                             <h3 class="experience-title">Artificial Intelligence Intern</h3>
-                            <p class="experience-company">Edunet Foundation (Microsoft and SAP CSR)</p>
+                            <p class="experience-company">Edunet Foundation (Microsoft and SAP CSR) - AICTE Approved</p>
                         </div>
                     </div>
                     <p class="experience-date">Nov. 2024 - Dec. 2024</p>
@@ -1041,6 +1078,8 @@
                         <li>Developed a face recognition-based attendance system with over 90% accuracy using OpenCV</li>
                         <li>Reduced manual attendance logging by 80%, effectively eliminating proxy entries</li>
                     </ul>
+                    <a href="AI_Offer_Letter.pdf" class="bt" target = "_blank">Offer Letter</a>
+                    <a href="AI_Internship_Certificate.pdf" class="bt" target = "_blank">Internship Certificate</a>
                 </div>
             </div>
         </div>
@@ -1063,6 +1102,7 @@
                             <span class="project-tag">TensorFlow</span>
                             <span class="project-tag">Keras</span>
                             <span class="project-tag">OpenCV</span>
+                            <span class="project-tag">Deep Learning</span>
                         </div>
                         <div class="project-links">
                             <a href="#" class="btn btn-outline">View Details</a>
@@ -1075,9 +1115,11 @@
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Attendance Management System</h3>
-                        <p class="project-description">Face recognition-based system for real-time, automated attendance tracking.</p>
+                        <p class="project-description">Face recognition-based system for real-time automated attendance tracking, enhanced accuracy and Security.</p>
                         <div class="project-tags">
                             <span class="project-tag">Python</span>
+                            <span class="project-tag">Numpy</span>
+                            <span class="project-tag">Pandas</span>
                             <span class="project-tag">OpenCV</span>
                             <span class="project-tag">Machine Learning</span>
                         </div>
@@ -1095,6 +1137,7 @@
                         <p class="project-description">Python-based steganography system to securely hide and extract confidential text data within image pixels.</p>
                         <div class="project-tags">
                             <span class="project-tag">Python</span>
+                            <span class="project-tag">OpenCV</span>
                             <span class="project-tag">Cryptography</span>
                             <span class="project-tag">Security</span>
                         </div>
@@ -1123,30 +1166,39 @@
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <h3 class="skill-category-title"><i class="fas fa-brain"></i> AI/ML</h3>
+                    <h3 class="skill-category-title"><i class="fas fa-brain"></i>libraries & Framework</h3>
                     <ul class="skill-category-list">
-                        <li class="skill-category-item"><i class="fas fa-check"></i> TensorFlow</li>
+                        <li class="skill-category-item"><i class="fas fa-check"></i> Numpy</li>
+                        <li class="skill-category-item"><i class="fas fa-check"></i> Pandas</li>
                         <li class="skill-category-item"><i class="fas fa-check"></i> OpenCV</li>
-                        <li class="skill-class="skill-category-item"><i class="fas fa-check"></i> Scikit-learn</li>
-                        <li class="skill-category-item"><i class="fas fa-check"></i> CNN</li>
-                        <li class="skill-category-item"><i class="fas fa-check"></i> Prompt Engineering</li>
+                        <li class="skill-category-item"><i class="fas fa-check"></i> Scikit-learn</li>
+                        <li class="skill-category-item"><i class="fas fa-check"></i> TensorFlow</li>
                     </ul>
                 </div>
                 <div class="skill-category">
                     <h3 class="skill-category-title"><i class="fas fa-tools"></i> Tools</h3>
                     <ul class="skill-category-list">
-                        <li class="skill-category-item"><i class="fas fa-check"></i> Git/GitHub</li>
-                        <li class="skill-category-item"><i class="fas fa-check"></i> VS Code</li>
+                        <li class="skill-category-item"><i class="fas fa-check"></i> Git & GitHub</li>
+                        <li class="skill-category-item"><i class="fas fa-check"></i> Figma</li>
                         <li class="skill-category-item"><i class="fas fa-check"></i> Jupyter Notebook</li>
                         <li class="skill-category-item"><i class="fas fa-check"></i> Gen-AI Tools</li>
-                        <li class="skill-category-item"><i class="fas fa-check"></i> MS Office</li>
+                        <li class="skill-category-item"><i class="fas fa-check"></i> MS Excel</li>
+                        <li class="skill-category-item"><i class="fas fa-check"></i> MS Word</li>
                     </ul>
                 </div>
                 <div class="skill-category">
                     <h3 class="skill-category-title"><i class="fas fa-database"></i> Databases</h3>
                     <ul class="skill-category-list">
-                        <li class="skill-category-item"><i class="fas fa-check"></i> SQL</li>
-                        <li class="skill-category-item"><i class="fas fa-check"></i> MongoDB</li>
+                        <li class="skill-category-item"><i class="fas fa-check"></i>Oracle SQL</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3 class="skill-category-title"><i class="fas fa-laptop-code"></i> CS Fundamental</h3>
+                    <ul class="skill-category-list">
+                        <li class="skill-category-item"><i class="fas fa-check"></i> Data Structure And algorithms</li>
+                        <li class="skill-category-item"><i class="fas fa-check"></i> Object Oriented Programming</li>
+                        <li class="skill-category-item"><i class="fas fa-check"></i> Database Management System</li>
+                        <li class="skill-category-item"><i class="fas fa-check"></i> Operating Systems</li>
                     </ul>
                 </div>
             </div>
