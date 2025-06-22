@@ -1357,14 +1357,27 @@ form.addEventListener("submit", async function (e) {
       body: formData,
     });
 
-    const result = await response.json();
+    // SAFEGUARD: Only call response.json() if the status is JSON
+    const contentType = response.headers.get("content-type");
 
-    if (response.ok && result.status === "success") {
+    if (!response.ok) {
+      let errorMsg = "Something went wrong.";
+      if (contentType && contentType.includes("application/json")) {
+        const errorData = await response.json();
+        errorMsg = errorData.message || errorMsg;
+      }
+      statusText.innerHTML = "❌ Error: " + errorMsg;
+      statusText.style.color = "red";
+      return;
+    }
+
+    const result = await response.json();
+    if (result.status === "success") {
       statusText.innerHTML = "✅ Message sent successfully!";
       statusText.style.color = "green";
       form.reset();
     } else {
-      statusText.innerHTML = "❌ Error: " + result.message;
+      statusText.innerHTML = "❌ Error: " + (result.message || "Unexpected error.");
       statusText.style.color = "red";
     }
   } catch (error) {
@@ -1373,6 +1386,7 @@ form.addEventListener("submit", async function (e) {
     console.error("Network error:", error);
   }
 });
+
 
 
 
