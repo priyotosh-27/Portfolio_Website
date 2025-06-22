@@ -1,12 +1,12 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS 
 import smtplib
 import os
 from dotenv import load_dotenv
-from flask_cors import CORS
 
 load_dotenv()
 app = Flask(__name__)
-CORS(app)  
+CORS(app) 
 
 EMAIL = os.getenv("EMAIL_USER")
 PASSWORD = os.getenv("EMAIL_PASS")
@@ -26,12 +26,9 @@ def send_email():
             smtp.login(EMAIL, PASSWORD)
             smtp.sendmail(EMAIL, EMAIL, full_message)
 
-        # ✅ Always return correct JSON
         return jsonify({'status': 'success', 'message': 'Email sent!'}), 200
-
     except Exception as e:
         return jsonify({'status': 'error', 'message': str(e)}), 500
-
 
 if __name__ == '__main__':
     app.run(debug=True)
