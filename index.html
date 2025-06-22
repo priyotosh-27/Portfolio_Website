@@ -1357,35 +1357,23 @@ form.addEventListener("submit", async function (e) {
       body: formData,
     });
 
-    // SAFEGUARD: Only call response.json() if the status is JSON
-    const contentType = response.headers.get("content-type");
+    const result = await response.json();  
 
-    if (!response.ok) {
-      let errorMsg = "Something went wrong.";
-      if (contentType && contentType.includes("application/json")) {
-        const errorData = await response.json();
-        errorMsg = errorData.message || errorMsg;
-      }
-      statusText.innerHTML = "❌ Error: " + errorMsg;
-      statusText.style.color = "red";
-      return;
-    }
-
-    const result = await response.json();
-    if (result.status === "success") {
+    if (response.ok && result.status === "success") {
       statusText.innerHTML = "✅ Message sent successfully!";
       statusText.style.color = "green";
       form.reset();
     } else {
-      statusText.innerHTML = "❌ Error: " + (result.message || "Unexpected error.");
+      statusText.innerHTML = `❌ Error: ${result.message || "Unknown error"}`;
       statusText.style.color = "red";
     }
   } catch (error) {
+    console.error("Network error:", error);
     statusText.innerHTML = "❌ Network error. Try again.";
     statusText.style.color = "red";
-    console.error("Network error:", error);
   }
 });
+
 
 
 

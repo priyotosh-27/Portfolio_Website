@@ -6,7 +6,7 @@ from flask_cors import CORS
 
 load_dotenv()
 app = Flask(__name__)
-CORS(app)  # ✅ Enable CORS for frontend-hosted elsewhere
+CORS(app)  
 
 EMAIL = os.getenv("EMAIL_USER")
 PASSWORD = os.getenv("EMAIL_PASS")
@@ -21,19 +21,17 @@ def send_email():
 
     try:
         full_message = f"Subject: {subject}\n\nName: {name}\nEmail: {email}\n\n{message}"
-        print("📨 Sending email...")
-        print(full_message)
-
         with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
             smtp.starttls()
             smtp.login(EMAIL, PASSWORD)
             smtp.sendmail(EMAIL, EMAIL, full_message)
 
-        print("✅ Email sent.")
+        # ✅ Always return correct JSON
         return jsonify({'status': 'success', 'message': 'Email sent!'}), 200
+
     except Exception as e:
-        print("❌ Error:", e)
         return jsonify({'status': 'error', 'message': str(e)}), 500
+
 
 if __name__ == '__main__':
     app.run(debug=True)
