@@ -922,6 +922,75 @@
                 padding: 4rem 0;
             }
         }
+        /* DARK THEME VARIABLES */
+.dark-theme {
+  --primary-color: #60a5fa;               /* Tailwind Blue-400 */
+  --secondary-color: #3b82f6;             /* Blue-500 */
+  --bg-color: #0f172a;                    /* Slate-900 */
+  --bg-gradient-from: #1e3a8a;            /* Indigo-800 */
+  --bg-gradient-to: #0f172a;              /* Slate-900 */
+  --text-color: #9fcdf7;                  /* Slate-200 for light text */
+  --text-light: #0d0f12;                  /* Slate-400 */
+  --card-bg: #1e293b;                     /* Slate-800 */
+  --button-bg: #638ce6;                   /* Blue-600 */
+  --button-hover: #61dbf3;                /* Blue-700 */
+  --shadow: 0 4px 6px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-theme {
+  background: linear-gradient(135deg, var(--bg-gradient-from), var(--bg-gradient-to));
+  color: var(--text-color);
+}
+
+.dark-theme h1,
+.dark-theme h2,
+.dark-theme h3,
+.dark-theme h4,
+.dark-theme h5,
+.dark-theme h6,
+.dark-theme p,
+.dark-theme a {
+  color: var(--text-color);
+}
+
+.dark-theme a:hover {
+  color: var(--secondary-color);
+}
+
+.dark-theme .button,
+.dark-theme button,
+.dark-theme .btn {
+  background-color: var(--button-bg);
+  color: #ffffff;
+  box-shadow: var(--shadow);
+}
+
+.dark-theme .button:hover {
+  background-color: var(--button-hover);
+}
+
+.dark-theme .card,
+.dark-theme .section,
+.dark-theme .profile-box,
+.dark-theme .project-box {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  box-shadow: var(--shadow);
+}
+
+.dark-theme nav,
+.dark-theme header {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+.dark-theme #theme-toggle {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+}
+
+
     </style>
 </head>
 <body>
@@ -943,6 +1012,10 @@
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
+            <button id="theme-toggle" style="position: fixed; top: 1rem; right: 1rem; padding: 0.5rem 1rem; border: none; border-radius: 5px; background: var(--primary-color); color: white; z-index: 1000; cursor: pointer;">
+    🌙 Dark Mode
+</button>
+
         </div>
     </header>
 
@@ -950,9 +1023,11 @@
     <section class="hero" id="home">
         <div class="container hero-content">
             <div class="hero-text">
+
                 <p class="hero-subtitle">Hello, I'm</p>
                 <h1 class="hero-title">Priyotosh <span>Roy</span></h1>
                 <p class="hero-description">Computer Science Engineer || Intern @AICTE - Edunet Foundation(IBM SkillsBuild) || Intern @AICTE - VaultofCodes || Ex-Intern @AICTE - Edunet Foundation (Microsoft & SAP CSR) || Ex-Intern @LearnAsYouGo || competitive programmer.</p>
+                
                 <div class="hero-btns">
                     <a href="https://leetcode.com/u/priyotosh453/" class="btn" target = "_blank">LeetCode Profile</a>
                     <a href="Priyotosh Roy's Resume.pdf" class="btn btn-outline" target="_blank">My Resume</a>
@@ -1459,6 +1534,23 @@ form.addEventListener("submit", async function (e) {
         document.querySelectorAll('.skill-progress').forEach(el => {
             observer.observe(el);
         });
+        const toggleBtn = document.getElementById('theme-toggle');
+
+    toggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-theme');
+        const darkMode = document.body.classList.contains('dark-theme');
+        toggleBtn.textContent = darkMode ? '☀️ Light Mode' : '🌙 Dark Mode';
+        localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+    });
+
+    // Persist the theme on reload
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-theme');
+            toggleBtn.textContent = '☀️ Light Mode';
+        }
+    });
     </script>
 </body>
 </html>
