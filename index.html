@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Priyotosh Roy | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --primary: #3b82f6;
@@ -15,36 +17,36 @@
             --success: #10b981;
             --warning: #f59e0b;
             --danger: #ef4444;
-            
+
             --bg-primary: #ffffff;
             --bg-secondary: #f8fafc;
             --bg-tertiary: #f1f5f9;
             --bg-card: #ffffff;
-            
+
             --text-primary: #0f172a;
             --text-secondary: #475569;
             --text-tertiary: #64748b;
             --text-muted: #94a3b8;
-            
+
             --border: #e2e8f0;
             --border-light: #f1f5f9;
-            
+
             --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
             --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
             --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
             --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
             --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-            
+
             --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            
+
             --radius-sm: 0.375rem;
             --radius: 0.5rem;
             --radius-md: 0.75rem;
             --radius-lg: 1rem;
             --radius-xl: 1.5rem;
-            
+
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -54,20 +56,20 @@
             --primary-dark: #3b82f6;
             --secondary: #a78bfa;
             --accent: #22d3ee;
-            
+
             --bg-primary: #0f172a;
             --bg-secondary: #1e293b;
             --bg-tertiary: #334155;
             --bg-card: #1e293b;
-            
+
             --text-primary: #f8fafc;
             --text-secondary: #e2e8f0;
             --text-tertiary: #cbd5e1;
             --text-muted: #94a3b8;
-            
+
             --border: #334155;
             --border-light: #475569;
-            
+
             --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
             --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.4);
             --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
@@ -202,7 +204,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: var(--transition);
         }
 
@@ -389,9 +391,12 @@
         }
 
         @keyframes float {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0) rotate(0deg);
             }
+
             50% {
                 transform: translateY(-20px) rotate(5deg);
             }
@@ -440,9 +445,12 @@
         }
 
         @keyframes profileFloat {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0);
             }
+
             50% {
                 transform: translateY(-20px);
             }
@@ -453,6 +461,7 @@
                 opacity: 0;
                 transform: translateX(-50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -464,6 +473,7 @@
                 opacity: 0;
                 transform: translateX(50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -609,9 +619,11 @@
         .timeline-item:nth-child(1) {
             animation-delay: 0.1s;
         }
+
         .timeline-item:nth-child(2) {
             animation-delay: 0.2s;
         }
+
         .timeline-item:nth-child(3) {
             animation-delay: 0.3s;
         }
@@ -621,6 +633,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -718,7 +731,7 @@
             box-shadow: var(--shadow-xl);
         }
 
-        .experience-card > * {
+        .experience-card>* {
             position: relative;
             z-index: 1;
         }
@@ -1077,7 +1090,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: var(--transition);
         }
 
@@ -1410,6 +1423,7 @@
 
         /* Print Styles */
         @media print {
+
             .back-to-top,
             .theme-toggle,
             .mobile-menu-btn {
@@ -1418,6 +1432,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header>
@@ -1455,11 +1470,11 @@
                         Priyotosh <span class="highlight">Roy</span>
                     </h1>
                     <p class="hero-description">
-                        Computer Science Engineer passionate about AI, Machine Learning, and Cybersecurity. 
-                        Currently pursuing B.Tech at UEM Kolkata with hands-on experience in developing 
+                        Computer Science Engineer passionate about AI, Machine Learning, and Cybersecurity.
+                        Currently pursuing B.Tech at UEM Kolkata with hands-on experience in developing
                         innovative solutions through multiple internships and 500+ solved DSA problems.
                     </p>
-                    
+
                     <div class="hero-buttons">
                         <a href="https://leetcode.com/u/priyotosh453/" class="btn btn-primary" target="_blank">
                             <i class="fas fa-code"></i>
@@ -1470,12 +1485,14 @@
                             Download Resume
                         </a>
                     </div>
-                    
+
                     <div class="social-links">
-                        <a href="https://github.com/priyotosh-27" class="social-link" target="_blank" aria-label="GitHub">
+                        <a href="https://github.com/priyotosh-27" class="social-link" target="_blank"
+                            aria-label="GitHub">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/priyotosh-roy-81833228a/" class="social-link" target="_blank" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/in/priyotosh-roy-81833228a/" class="social-link"
+                            target="_blank" aria-label="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                         <a href="mailto:priyotoshroy269@gmail.com" class="social-link" aria-label="Email">
@@ -1499,23 +1516,25 @@
             <h2 class="section-title text-3xl">About Me</h2>
             <div class="about-content">
                 <div class="about-image fade-in-left">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Professional workspace" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+                        alt="Professional workspace" loading="lazy">
                 </div>
                 <div class="about-text fade-in-right">
                     <h3 class="about-title text-2xl">Passionate Developer & Problem Solver</h3>
                     <p class="about-description">
-                        Hi! I'm Priyotosh Roy, a dedicated B.Tech Computer Science Engineering student at the 
+                        Hi! I'm Priyotosh Roy, a dedicated B.Tech Computer Science Engineering student at the
                         University of Engineering and Management, Kolkata, maintaining a strong CGPA of 8.85.
                     </p>
                     <p class="about-description">
-                        My journey spans across cutting-edge technologies including AI, Machine Learning, 
-                        Cybersecurity, and Prompt Engineering. Through multiple AICTE-approved internships 
-                        at prestigious organizations like IBM SkillsBuild, VaultofCodes, and Microsoft-SAP CSR 
+                        My journey spans across cutting-edge technologies including AI, Machine Learning,
+                        Cybersecurity, and Prompt Engineering. Through multiple AICTE-approved internships
+                        at prestigious organizations like IBM SkillsBuild, VaultofCodes, and Microsoft-SAP CSR
                         programs, I've gained hands-on experience in developing real-world solutions.
                     </p>
                     <p class="about-description">
-                        I'm a passionate competitive programmer with <strong>500+ DSA problems solved</strong>, 
-                        a <strong>5-star rating on HackerRank</strong>, and the <strong>LeetCode 100 Days Badge 2025</strong> 
+                        I'm a passionate competitive programmer with <strong>500+ DSA problems solved</strong>,
+                        a <strong>5-star rating on HackerRank</strong>, and the <strong>LeetCode 100 Days Badge
+                            2025</strong>
                         for consistent problem-solving dedication.
                     </p>
                 </div>
@@ -1536,7 +1555,7 @@
                         <p class="timeline-description">
                             <strong>University of Engineering and Management, Kolkata</strong><br>
                             Current CGPA: 8.88/10.0<br>
-                            Relevant Coursework: Data Structures, Algorithms, Database Management, 
+                            Relevant Coursework: Data Structures, Algorithms, Database Management,
                             Operating Systems, Machine Learning, Artificial Intelligence
                         </p>
                     </div>
@@ -1586,7 +1605,7 @@
                         </div>
                     </div>
                     <p class="experience-description">
-                        Currently working on cutting-edge AI projects under IBM SkillsBuild platform 
+                        Currently working on cutting-edge AI projects under IBM SkillsBuild platform
                         with expert mentorship to solve real-world challenges.
                     </p>
                     <ul class="experience-list">
@@ -1615,7 +1634,7 @@
                         </div>
                     </div>
                     <p class="experience-description">
-                        Specialized in optimizing large language models through advanced prompt engineering 
+                        Specialized in optimizing large language models through advanced prompt engineering
                         techniques and AI system improvements.
                     </p>
                     <ul class="experience-list">
@@ -1648,12 +1667,13 @@
                         </div>
                     </div>
                     <p class="experience-description">
-                        Focused on developing secure systems and implementing advanced cybersecurity 
+                        Focused on developing secure systems and implementing advanced cybersecurity
                         measures for data protection and digital forensics.
                     </p>
                     <ul class="experience-list">
                         <li>Engineered Python-based steganography system with 95%+ hidden data retrieval accuracy</li>
-                        <li>Enhanced image encryption protocols, strengthening confidentiality across communication channels</li>
+                        <li>Enhanced image encryption protocols, strengthening confidentiality across communication
+                            channels</li>
                         <li>Implemented security best practices for web applications and databases</li>
                         <li>Conducted vulnerability assessments and penetration testing simulations</li>
                     </ul>
@@ -1681,7 +1701,7 @@
                         </div>
                     </div>
                     <p class="experience-description">
-                        Developed innovative AI-powered solutions for real-world applications with focus 
+                        Developed innovative AI-powered solutions for real-world applications with focus
                         on computer vision and automated systems.
                     </p>
                     <ul class="experience-list">
@@ -1718,7 +1738,10 @@
                     <div class="project-content">
                         <h3 class="project-title text-xl">CodeMaster - A Coding Platform</h3>
                         <p class="project-description">
-                           I created a website called CodeMaster where students can practice coding, take different tests, and read study notes on DSA, Java, and computer science. The site includes features like login, test categories, and coding challenges to make learning easier. I hosted it online using GitHub Pages so that anyone can access and use it
+                            I created a website called CodeMaster where students can practice coding, take different
+                            tests, and read study notes on DSA, Java, and computer science. The site includes features
+                            like login, test categories, and coding challenges to make learning easier. I hosted it
+                            online using GitHub Pages so that anyone can access and use it
                         </p>
                         <div class="project-tags">
                             <span class="project-tag">HTMl</span>
@@ -1727,13 +1750,14 @@
                             <span class="project-tag">JavaScript</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://priyotosh-27.github.io/CodeMaster/" class="btn btn-primary" target="_blank">
-                                
+                            <a href="https://codemaster-t6q4.onrender.com/" class="btn btn-primary" target="_blank">
+
                                 CodeMaster - A Coding Platform
                             </a>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/priyotosh-27/CodeMaster" class="btn btn-primary" target="_blank">
+                            <a href="https://github.com/priyotosh-27/CodeMaster" class="btn btn-primary"
+                                target="_blank">
                                 <i class="fab fa-github"></i>
                                 View Project
                             </a>
@@ -1748,8 +1772,8 @@
                     <div class="project-content">
                         <h3 class="project-title text-xl">LeafScan - Plant Disease Detection</h3>
                         <p class="project-description">
-                            Advanced deep learning system for automated plant disease detection from leaf images. 
-                            Uses convolutional neural networks to identify diseases with high accuracy, helping 
+                            Advanced deep learning system for automated plant disease detection from leaf images.
+                            Uses convolutional neural networks to identify diseases with high accuracy, helping
                             farmers make informed decisions about crop management.
                         </p>
                         <div class="project-tags">
@@ -1761,7 +1785,8 @@
                             <span class="project-tag">CNN</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/priyotosh-27/Plant-Disease-Detection" class="btn btn-primary" target="_blank">
+                            <a href="https://github.com/priyotosh-27/Plant-Disease-Detection" class="btn btn-primary"
+                                target="_blank">
                                 <i class="fab fa-github"></i>
                                 View Project
                             </a>
@@ -1776,8 +1801,9 @@
                     <div class="project-content">
                         <h3 class="project-title text-xl">Smart Attendance Management System</h3>
                         <p class="project-description">
-                            Real-time face recognition-based attendance tracking system with enhanced security features. 
-                            Eliminates manual processes and prevents proxy attendance through advanced biometric verification.
+                            Real-time face recognition-based attendance tracking system with enhanced security features.
+                            Eliminates manual processes and prevents proxy attendance through advanced biometric
+                            verification.
                         </p>
                         <div class="project-tags">
                             <span class="project-tag">Python</span>
@@ -1803,8 +1829,9 @@
                     <div class="project-content">
                         <h3 class="project-title text-xl">Secure Data Hiding in Images</h3>
                         <p class="project-description">
-                            Sophisticated steganography system for securely embedding and extracting confidential 
-                            text data within image pixels. Implements advanced cryptographic techniques for data protection.
+                            Sophisticated steganography system for securely embedding and extracting confidential
+                            text data within image pixels. Implements advanced cryptographic techniques for data
+                            protection.
                         </p>
                         <div class="project-tags">
                             <span class="project-tag">Python</span>
@@ -1815,7 +1842,8 @@
                             <span class="project-tag">PIL</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/priyotosh-27/Cyber__Security__Project" class="btn btn-primary" target="_blank">
+                            <a href="https://github.com/priyotosh-27/Cyber__Security__Project" class="btn btn-primary"
+                                target="_blank">
                                 <i class="fab fa-github"></i>
                                 View Project
                             </a>
@@ -1830,8 +1858,10 @@
                     <div class="project-content">
                         <h3 class="project-title text-xl">Smart AI Assistant</h3>
                         <p class="project-description">
-                            Intelligent AI-powered assistant built with Flask and OpenRouter API. Features question answering, 
-                            text summarization, and creative content generation through a clean, mobile-responsive interface.
+                            Intelligent AI-powered assistant built with Flask and OpenRouter API. Features question
+                            answering,
+                            text summarization, and creative content generation through a clean, mobile-responsive
+                            interface.
                         </p>
                         <div class="project-tags">
                             <span class="project-tag">Python</span>
@@ -1842,7 +1872,8 @@
                             <span class="project-tag">REST API</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/priyotosh-27/AI-Assistant" class="btn btn-primary" target="_blank">
+                            <a href="https://github.com/priyotosh-27/AI-Assistant" class="btn btn-primary"
+                                target="_blank">
                                 <i class="fab fa-github"></i>
                                 View Project
                             </a>
@@ -2001,7 +2032,7 @@
                             <p class="contact-info-subtitle">priyotoshroy269@gmail.com</p>
                         </div>
                     </div>
-                    
+
                     <div class="contact-info-item">
                         <div class="contact-info-icon">
                             <i class="fas fa-phone"></i>
@@ -2011,7 +2042,7 @@
                             <p class="contact-info-subtitle">+91-6297267227</p>
                         </div>
                     </div>
-                    
+
                     <div class="contact-info-item">
                         <div class="contact-info-icon">
                             <i class="fas fa-map-marker-alt"></i>
@@ -2021,15 +2052,15 @@
                             <p class="contact-info-subtitle">Kolkata, West Bengal, India</p>
                         </div>
                     </div>
-                    
+
                     <div class="contact-info-item">
                         <div class="contact-info-icon">
                             <i class="fab fa-linkedin"></i>
                         </div>
                         <div class="contact-info-text">
                             <a href="https://www.linkedin.com/in/priyotosh-roy-81833228a/" target="_blank">
-                            <p class="contact-info-title">LinkedIn</p>
-                            <p class="contact-info-subtitle">Connect with me professionally</p>
+                                <p class="contact-info-title">LinkedIn</p>
+                                <p class="contact-info-subtitle">Connect with me professionally</p>
                             </a>
                         </div>
                     </div>
@@ -2039,23 +2070,23 @@
                     <form id="contactForm">
                         <div class="form-group">
                             <label for="name" class="form-label">Full Name</label>
-                            <input type="text" id="name" name="name" class="form-input" required 
-                                   placeholder="Enter your full name">
+                            <input type="text" id="name" name="name" class="form-input" required
+                                placeholder="Enter your full name">
                         </div>
                         <div class="form-group">
                             <label for="email" class="form-label">Email Address</label>
-                            <input type="email" id="email" name="email" class="form-input" required 
-                                   placeholder="Enter your email address">
+                            <input type="email" id="email" name="email" class="form-input" required
+                                placeholder="Enter your email address">
                         </div>
                         <div class="form-group">
                             <label for="subject" class="form-label">Subject</label>
-                            <input type="text" id="subject" name="subject" class="form-input" required 
-                                   placeholder="What's this about?">
+                            <input type="text" id="subject" name="subject" class="form-input" required
+                                placeholder="What's this about?">
                         </div>
                         <div class="form-group">
                             <label for="message" class="form-label">Message</label>
-                            <textarea id="message" name="message" class="form-input" required 
-                                      placeholder="Tell me about your project or inquiry..."></textarea>
+                            <textarea id="message" name="message" class="form-input" required
+                                placeholder="Tell me about your project or inquiry..."></textarea>
                         </div>
                         <button type="submit" class="form-submit">
                             <span class="submit-text">Send Message</span>
@@ -2083,22 +2114,24 @@
                     <a href="#skills" class="footer-link">Skills</a>
                     <a href="#contact" class="footer-link">Contact</a>
                 </div>
-                
+
                 <div class="footer-social">
                     <a href="https://github.com/priyotosh-27" class="social-link" target="_blank" aria-label="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/priyotosh-roy-81833228a/" class="social-link" target="_blank" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/in/priyotosh-roy-81833228a/" class="social-link" target="_blank"
+                        aria-label="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
                     <a href="mailto:priyotoshroy269@gmail.com" class="social-link" aria-label="Email">
                         <i class="fas fa-envelope"></i>
                     </a>
-                    <a href="https://leetcode.com/u/priyotosh453/" class="social-link" target="_blank" aria-label="LeetCode">
+                    <a href="https://leetcode.com/u/priyotosh453/" class="social-link" target="_blank"
+                        aria-label="LeetCode">
                         <i class="fas fa-code"></i>
                     </a>
                 </div>
-                
+
                 <p class="footer-copyright">
                     © 2025 Priyotosh Roy. Crafted with passion and precision. All rights reserved.
                 </p>
@@ -2128,10 +2161,10 @@
         themeToggle.addEventListener('click', () => {
             body.classList.toggle('dark-theme');
             const isDark = body.classList.contains('dark-theme');
-            
+
             themeIcon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            
+
             // Add smooth transition effect
             body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
             setTimeout(() => {
@@ -2168,13 +2201,13 @@
 
         // Smooth Scrolling for Navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     const headerHeight = document.querySelector('header').offsetHeight;
                     const targetPosition = target.offsetTop - headerHeight - 20;
-                    
+
                     window.scrollTo({
                         top: targetPosition,
                         behavior: 'smooth'
@@ -2189,18 +2222,18 @@
 
         window.addEventListener('scroll', () => {
             const currentScrollY = window.scrollY;
-            
+
             if (currentScrollY > 100) {
-                header.style.background = body.classList.contains('dark-theme') 
-                    ? 'rgba(15, 23, 42, 0.95)' 
+                header.style.background = body.classList.contains('dark-theme')
+                    ? 'rgba(15, 23, 42, 0.95)'
                     : 'rgba(255, 255, 255, 0.95)';
                 header.style.backdropFilter = 'blur(20px)';
             } else {
-                header.style.background = body.classList.contains('dark-theme') 
-                    ? 'rgba(15, 23, 42, 0.8)' 
+                header.style.background = body.classList.contains('dark-theme')
+                    ? 'rgba(15, 23, 42, 0.8)'
                     : 'rgba(255, 255, 255, 0.8)';
             }
-            
+
             lastScrollY = currentScrollY;
         });
 
@@ -2250,7 +2283,7 @@
 
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
+
             // Update button state
             submitBtn.disabled = true;
             submitText.textContent = 'Sending...';
@@ -2292,7 +2325,7 @@
         if (heroTitle) {
             const text = heroTitle.textContent;
             heroTitle.textContent = '';
-            
+
             let i = 0;
             const typeWriter = () => {
                 if (i < text.length) {
@@ -2301,7 +2334,7 @@
                     setTimeout(typeWriter, 100);
                 }
             };
-            
+
             // Start typing animation after a short delay
             setTimeout(typeWriter, 500);
         }
@@ -2348,4 +2381,5 @@
         `);
     </script>
 </body>
+
 </html>
