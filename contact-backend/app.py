@@ -1,57 +1,49 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS 
+from flask_cors import CORS
 import smtplib
 import os
 from dotenv import load_dotenv
 
 load_dotenv()
+
 app = Flask(__name__)
-CORS(app) 
+CORS(app)
 
 EMAIL = os.getenv("EMAIL_USER")
 PASSWORD = os.getenv("EMAIL_PASS")
 
-@app.route('/send', methods=['POST'])
+@app.route("/")
+def home():
+    return "Backend is running"
+
+@app.route("/send", methods=["POST"])
 def send_email():
-    # Accept JSON or form-encoded bodies
-    data = request.get_json(silent=True) or request.form or request.values
-    name = data.get('name') if data else None
-    email = data.get('email') if data else None
-    subject = data.get('subject') if data else None
-    message = data.get('message') if data else None
+    data = request.form
 
-    # Basic validation
-    if not EMAIL or not PASSWORD:
-        return jsonify({'status': 'error', 'message': 'Server email credentials are not configured.'}), 500
-
-    if not subject:
-        subject = 'No subject'
+    name = data.get("name")
+    email = data.get("email")
+    subject = data.get("subject")
+    message = data.get("message")
 
     try:
-        from email.message import EmailMessage
+        full_message = f"""Subject: {subject}
 
-        msg = EmailMessage()
-        msg['Subject'] = subject
-        msg['From'] = EMAIL
-        # Send to the site owner; you can change this to send to the visitor's email if desired
-        msg['To'] = EMAIL
-        body = f"Name: {name}\nEmail: {email}\n\n{message or ''}"
-        msg.set_content(body)
+Name: {name}
+Email: {email}
 
-        with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
-            smtp.ehlo()
+{message}
+"""
+
+        with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
             smtp.starttls()
-            smtp.ehlo()
             smtp.login(EMAIL, PASSWORD)
-            smtp.send_message(msg)
+            smtp.sendmail(EMAIL, EMAIL, full_message)
 
-        return jsonify({'status': 'success', 'message': 'Email sent!'}), 200
+        return jsonify({"status": "success"}), 200
+
     except Exception as e:
-        # Log the traceback to server logs for debugging
-        app.logger.exception('Failed to send email')
-        return jsonify({'status': 'error', 'message': str(e)}), 500
+        return jsonify({"status": "error", "message": str(e)}), 500
 
-if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))  
-    app.run(host='0.0.0.0', port=port, debug=True)
-
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
