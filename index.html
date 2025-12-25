@@ -1677,14 +1677,19 @@
             statusMessage.textContent = '';
             statusMessage.className = '';
 
-            const formData = new FormData(contactForm);
+            const formData = new URLSearchParams(new FormData(contactForm));
+
 
             try {
                 const response = await fetch('https://contact-backend-55ve.onrender.com/send', {
                     method: 'POST',
-                    mode: 'cors',                 // ✅ IMPORTANT
-                    body: formData,
+                    mode: 'cors',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: formData
                 });
+
 
 
                 let result;
