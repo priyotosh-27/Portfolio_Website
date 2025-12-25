@@ -1,14 +1,12 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, make_response
 from flask_cors import CORS
-import smtplib
-import os
+import smtplib, os
 from dotenv import load_dotenv
 
 load_dotenv()
 
 app = Flask(__name__)
-
-CORS(app, resources={r"/send": {"origins": "*"}})
+CORS(app)
 
 EMAIL = os.getenv("EMAIL_USER")
 PASSWORD = os.getenv("EMAIL_PASS")
@@ -23,21 +21,18 @@ def home():
 
 @app.route("/send", methods=["POST", "OPTIONS"])
 def send_email():
+
+    if request.method == "OPTIONS":
+        response = make_response()
+        response.headers["Access-Control-Allow-Origin"] = "*"
+        response.headers["Access-Control-Allow-Methods"] = "POST, OPTIONS"
+        response.headers["Access-Control-Allow-Headers"] = "Content-Type"
+        return response, 200
+
     data = request.form
 
-    name = data.get("name")
-    email = data.get("email")
-    subject = data.get("subject")
-    message = data.get("message")
-
     try:
-        full_message = f"""Subject: {subject}
-
-Name: {name}
-Email: {email}
-
-{message}
-"""
+        full_message = f"Subject: {data['subject']}\n\nName: {data['name']}\nEmail: {data['email']}\n\n{data['message']}"
 
         with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
             smtp.starttls()
@@ -49,7 +44,3 @@ Email: {email}
     except Exception as e:
         print("EMAIL ERROR:", e)
         return jsonify({"status": "error", "message": str(e)}), 500
-
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 10000))
-    app.run(host="0.0.0.0", port=port)
