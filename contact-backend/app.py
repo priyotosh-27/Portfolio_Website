@@ -7,16 +7,21 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app)
+
+CORS(app, resources={r"/send": {"origins": "*"}})
 
 EMAIL = os.getenv("EMAIL_USER")
 PASSWORD = os.getenv("EMAIL_PASS")
+
+@app.before_request
+def log_request():
+    print("INCOMING:", request.method, request.path)
 
 @app.route("/")
 def home():
     return "Backend is running"
 
-@app.route("/send", methods=["POST"])
+@app.route("/send", methods=["POST", "OPTIONS"])
 def send_email():
     data = request.form
 
@@ -42,6 +47,7 @@ Email: {email}
         return jsonify({"status": "success"}), 200
 
     except Exception as e:
+        print("EMAIL ERROR:", e)
         return jsonify({"status": "error", "message": str(e)}), 500
 
 if __name__ == "__main__":
