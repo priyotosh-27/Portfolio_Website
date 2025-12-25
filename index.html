@@ -1677,7 +1677,12 @@
             statusMessage.textContent = '';
             statusMessage.className = '';
 
-            const formData = new URLSearchParams(new FormData(contactForm));
+            const formData = new URLSearchParams();
+            formData.append('name', contactForm.name.value);
+            formData.append('email', contactForm.email.value);
+            formData.append('subject', contactForm.subject.value);
+            formData.append('message', contactForm.message.value);
+
 
 
             try {
@@ -1687,7 +1692,8 @@
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded'
                     },
-                    body: formData
+                    body: formData.toString()
+
                 });
 
 
