@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, make_response
 from flask_cors import CORS
 import smtplib, os
+from email.message import EmailMessage
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -10,6 +11,10 @@ CORS(app)
 
 EMAIL = os.getenv("EMAIL_USER")
 PASSWORD = os.getenv("EMAIL_PASS")
+
+# Debug check (safe — does not expose password)
+print("EMAIL ENV:", EMAIL)
+print("PASS ENV:", "SET" if PASSWORD else "NOT SET")
 
 @app.before_request
 def log_request():
@@ -32,25 +37,37 @@ def send_email():
     try:
         data = request.form
 
-        full_message = f"""Subject: {data.get('subject')}
+        if not EMAIL or not PASSWORD:
+            raise Exception("Email credentials are not configured in environment variables")
 
+        msg = EmailMessage()
+        msg["From"] = EMAIL
+        msg["To"] = EMAIL
+        msg["Subject"] = data.get("subject", "New Contact Form Message")
+
+        body = f"""
 Name: {data.get('name')}
 Email: {data.get('email')}
 
+Message:
 {data.get('message')}
 """
+        msg.set_content(body)
 
-        with smtplib.SMTP("smtp.gmail.com", 587, timeout=20) as smtp:
+        with smtplib.SMTP("smtp.gmail.com", 587, timeout=30) as smtp:
+            smtp.ehlo()
             smtp.starttls()
             smtp.login(EMAIL, PASSWORD)
-            smtp.sendmail(EMAIL, EMAIL, full_message)
+            smtp.send_message(msg)
 
+        print("EMAIL SENT SUCCESSFULLY")
         return jsonify({"status": "success"}), 200
 
     except Exception as e:
         print("EMAIL ERROR:", e)
         return jsonify({"status": "error", "message": str(e)}), 500
 
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
-    app.run(host="0.0.0.0", port=port, debug=False)
+    app.run(host="0.0.0.0", port=port)
