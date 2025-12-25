@@ -29,12 +29,18 @@ def send_email():
         response.headers["Access-Control-Allow-Headers"] = "Content-Type"
         return response, 200
 
-    data = request.form
-
     try:
-        full_message = f"Subject: {data['subject']}\n\nName: {data['name']}\nEmail: {data['email']}\n\n{data['message']}"
+        data = request.form
 
-        with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
+        full_message = f"""Subject: {data.get('subject')}
+
+Name: {data.get('name')}
+Email: {data.get('email')}
+
+{data.get('message')}
+"""
+
+        with smtplib.SMTP("smtp.gmail.com", 587, timeout=20) as smtp:
             smtp.starttls()
             smtp.login(EMAIL, PASSWORD)
             smtp.sendmail(EMAIL, EMAIL, full_message)
@@ -44,3 +50,7 @@ def send_email():
     except Exception as e:
         print("EMAIL ERROR:", e)
         return jsonify({"status": "error", "message": str(e)}), 500
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port, debug=False)
