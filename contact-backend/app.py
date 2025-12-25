@@ -1,8 +1,8 @@
-from flask import Flask, request, jsonify, make_response
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 import smtplib, os
-from dotenv import load_dotenv
 from email.message import EmailMessage
+from dotenv import load_dotenv
 
 load_dotenv()
 
@@ -25,13 +25,15 @@ def send_email():
         msg["From"] = EMAIL
         msg["To"] = EMAIL
         msg["Subject"] = data.get("subject")
-        msg.set_content(f"""
-Name: {data.get("name")}
-Email: {data.get("email")}
+
+        body = f"""
+Name: {data.get('name')}
+Email: {data.get('email')}
 
 Message:
-{data.get("message")}
-""")
+{data.get('message')}
+"""
+        msg.set_content(body)
 
         with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
             smtp.login(EMAIL, PASSWORD)
